@@ -1,0 +1,10 @@
+# 文件作用：推荐的 Conda Python 3.11 环境定义。
+name: cub200-portfolio
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - -r requirements.txt
+

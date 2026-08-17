@@ -1,0 +1,20 @@
+# 文件作用：阻止数据、checkpoint、缓存和本地实验输出进入 Git。
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+# VS Code launch configurations are intentionally committed for one-click project runs.
+.idea/
+data/
+images/
+artifacts/
+processed_data/
+checkpoints/
+runs/
+outputs*/
+*.pt
+*.pth
+*.npy
+demo_results/
+evaluation_*/
+gradio_cached_examples/

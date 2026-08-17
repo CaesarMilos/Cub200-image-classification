@@ -1,0 +1,8 @@
+# 文件作用：控制 CUB 官方数据读取与固定 manifest 生成。
+# 使用正斜杠可同时兼容 Windows、Linux 与 VS Code 终端。
+raw_dir: "data/CUB_200_2011"
+artifacts_dir: "data/artifacts"
+val_ratio: 0.10       # 每个类别的官方训练图片约 10% 进入 validation。
+seed: 42              # 改变 seed 会改变 train/val，正式实验后不要再修改。
+verify_images: true   # 正式运行必须为 true；仅无图源码检查时可临时关闭。
+

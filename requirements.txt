@@ -1,0 +1,11 @@
+# 文件作用：项目 Python 依赖；PyTorch 请按本机 CUDA 版本优先安装官方 GPU wheel。
+torch
+torchvision
+numpy
+Pillow
+PyYAML
+scikit-learn
+matplotlib
+gradio
+pytest
+

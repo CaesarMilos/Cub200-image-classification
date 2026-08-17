@@ -1,0 +1,108 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "1. Prepare CUB data",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/prepare_data.py",
+      "args": [
+        "--config",
+        "configs/data.yaml"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "2. Train Custom CNN",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/train_custom.py",
+      "args": [
+        "--config",
+        "configs/custom_cnn.yaml"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "3. Train ResNet-50",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/train_resnet.py",
+      "args": [
+        "--config",
+        "configs/resnet50.yaml"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "4. Train ConvNeXt baseline",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/train_eval_strong.py",
+      "args": [
+        "--config",
+        "configs/convnext_baseline.yaml"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "5. Train ConvNeXt Attention",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/train_eval_strong.py",
+      "args": [
+        "--config",
+        "configs/convnext_attention.yaml"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "6. Evaluate final test",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/evaluate.py",
+      "args": [
+        "--checkpoint",
+        "${input:checkpointPath}",
+        "--split",
+        "test",
+        "--tta",
+        "--output_dir",
+        "${input:evaluationOutputDir}"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "7. Launch portfolio demo",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/app.py",
+      "args": [
+        "--checkpoint",
+        "${input:checkpointPath}"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ],
+  "inputs": [
+    {
+      "id": "checkpointPath",
+      "type": "promptString",
+      "description": "Paste the path to best_val_raw.pt or best_val_ema.pt",
+      "default": ""
+    },
+    {
+      "id": "evaluationOutputDir",
+      "type": "promptString",
+      "description": "Folder for formal evaluation outputs",
+      "default": "results/final_test"
+    }
+  ]
+}
